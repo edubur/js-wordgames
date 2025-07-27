@@ -12,3 +12,60 @@
 //             If a word starts with a vowel add the word “way” at the end of the word.
 //                 Example: Awesome = Awesome +way = Awesomeway
 //         Output the translated phrase to the console.
+
+// Planning steps:
+// 1. take user input from process.argv
+// declare variable that stores user input
+
+const userInput = process.argv[2]?.toLowerCase();
+
+// missing: error catching, if userInput is faulty
+
+// 2. define all possible scenarios
+// 2.1 consonants[0] + vowels[1]
+// 2.2 consonants[0] + consonants[1]
+// 2.3 vowels[0]
+
+const vowels = ["a", "e", "i", "o", "u"];
+
+const consonants = [
+  "b",
+  "c",
+  "d",
+  "f",
+  "g",
+  "h",
+  "j",
+  "k",
+  "l",
+  "m",
+  "n",
+  "p",
+  "q",
+  "r",
+  "s",
+  "t",
+  "v",
+  "w",
+  "x",
+  "y",
+  "z",
+];
+
+// search the userInput string with userInput.search()
+// the output needs to be stored in a let variable, so it can be edited
+
+let pigLatin = "";
+
+if (vowels.includes(userInput[0])) {
+  pigLatin = userInput + "way";
+} else if (vowels.includes(userInput[1])) {
+  pigLatin = userInput.slice(1) + userInput.slice(0, 1) + "ay";
+} else {
+  pigLatin = userInput.slice(2) + userInput.slice(0, 2) + "ay";
+}
+
+// output to the user
+console.log(`${pigLatin}`);
+
+// find case for 1 letter input?
