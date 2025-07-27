@@ -36,4 +36,16 @@ const pcPick = validInput[random];
 console.log(`PC picked: ${pcPick}`);
 
 // 3. compare both values to a "library"
-// 4. return output
+// three scenarios: win, lose and tie
+
+if (userInput === pcPick) {
+  console.log("Tie!");
+} else if (
+  (userInput === "rock" && pcPick === "paper") ||
+  (userInput === "paper" && pcPick === "scissors") ||
+  (userInput === "scissors" && pcPick === "rock")
+) {
+  console.log("You lose!");
+} else {
+  console.log("You win!");
+}
